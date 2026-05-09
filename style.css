@@ -101,11 +101,29 @@ img { max-width: 100%; display: block; }
   color: var(--primary);
   flex-shrink: 0;
 }
+.logo-img { height: 52px; width: auto; object-fit: contain; }
 .logo-icon { font-size: 26px; }
 .logo-text { color: var(--text); }
 .logo-accent { color: var(--primary); }
 .logo-white .logo-text { color: rgba(255,255,255,0.85); }
 .logo-white .logo-accent { color: var(--white); }
+
+/* Partners bar */
+.partners-bar { text-align: center; margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border); }
+.partners-label { font-size: 13px; font-weight: 600; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px; }
+.partners-logos { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.partner-badge {
+  padding: 14px 32px;
+  border-radius: 10px;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  border: 2px solid var(--border);
+}
+.partner-badge.dhl { background: #FFCC00; color: #D40511; }
+.partner-badge.fedex { background: #fff; color: #4D148C; }
+.partner-badge.fedex span { color: #FF6600; }
+.partner-badge.ups { background: #351C15; color: #FFB500; }
 
 /* Nav */
 .nav {
