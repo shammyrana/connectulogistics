@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volumetric Weight Calculator – Connectu Logistics</title>
+  <meta name="description" content="Calculate the volumetric weight of your shipment using our free online calculator. Understand how courier charges are calculated." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">✈</span>
+        <span class="logo-text">Connectu<span class="logo-accent">Logistics</span></span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="tracking.html" class="nav-link">Track Shipment</a>
+        <a href="volumetric.html" class="nav-link active">Volumetric Weight</a>
+        <a href="index.html#about" class="nav-link">About Us</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="tracking.html" class="btn btn-primary nav-cta">Track Now</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-badge" style="margin-bottom:16px; display:inline-block;">Free Calculator</span>
+      <h1>Volumetric Weight Calculator</h1>
+      <p>Calculate the volumetric (dimensional) weight of your shipment to estimate courier charges accurately.</p>
+    </div>
+  </section>
+
+  <!-- VOLUMETRIC SECTION -->
+  <section class="volumetric-section">
+    <div class="container">
+      <div class="volumetric-card">
+        <h2>Calculate Volumetric Weight</h2>
+        <p>Enter the dimensions of your package below. The volumetric weight is compared against actual weight — whichever is higher determines the shipping cost.</p>
+
+        <div class="form-group">
+          <label>Length (cm)</label>
+          <input type="number" id="length" class="big-track-input" placeholder="e.g. 30" min="1" />
+        </div>
+        <div class="form-group">
+          <label>Width (cm)</label>
+          <input type="number" id="width" class="big-track-input" placeholder="e.g. 20" min="1" />
+        </div>
+        <div class="form-group">
+          <label>Height (cm)</label>
+          <input type="number" id="height" class="big-track-input" placeholder="e.g. 15" min="1" />
+        </div>
+        <div class="form-group">
+          <label>Actual Weight (kg) <span style="font-weight:400; color:var(--text-muted);">(optional – to compare)</span></label>
+          <input type="number" id="actualWeight" class="big-track-input" placeholder="e.g. 2.5" min="0" step="0.1" />
+        </div>
+
+        <button class="btn btn-primary btn-lg" onclick="calculateVolumetric()" style="width:100%; justify-content:center; margin-top:8px;">Calculate</button>
+
+        <div class="vol-result" id="volResult">
+          <h3>Volumetric Weight</h3>
+          <div>
+            <span class="result-num" id="volNum">0</span>
+            <span class="result-unit">kg</span>
+          </div>
+          <p id="chargeableNote" style="margin-top:12px; font-size:14px; color:var(--text-muted);"></p>
+        </div>
+
+        <div class="info-box">
+          <h3>📐 How is Volumetric Weight Calculated?</h3>
+          <p>Volumetric weight (also called dimensional weight) is calculated using this formula:</p>
+          <code>Volumetric Weight (kg) = (Length × Width × Height in cm) ÷ 5000</code>
+          <p style="margin-top:12px;">Couriers use the <strong>higher</strong> of the actual weight and the volumetric weight to determine the chargeable weight of your shipment. This is standard practice in the international courier industry.</p>
+        </div>
+
+        <div class="info-box" style="margin-top:20px; border-color: rgba(255,107,0,0.3); background: rgba(255,107,0,0.05);">
+          <h3>💡 Tips to Reduce Shipping Costs</h3>
+          <ul style="display:flex; flex-direction:column; gap:8px; color:var(--text-muted); font-size:14px; list-style:disc; padding-left:20px; margin-top:8px;">
+            <li>Use compact packaging — avoid oversized boxes for small items.</li>
+            <li>Remove unnecessary padding and use right-sized boxes.</li>
+            <li>Consolidate multiple small parcels into one larger shipment when possible.</li>
+            <li>Choose lightweight packaging materials to reduce actual weight.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background: var(--bg-soft); padding: 72px 0;">
+    <div class="container" style="max-width:800px;">
+      <div class="section-header">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div class="service-card" style="max-width:100%;">
+          <h3 style="font-size:16px; margin-bottom:8px;">What is the divisor used for air freight?</h3>
+          <p>For international air courier services, the standard divisor is 5000. Some carriers may use 6000 for certain routes or services.</p>
+        </div>
+        <div class="service-card" style="max-width:100%;">
+          <h3 style="font-size:16px; margin-bottom:8px;">Does this apply to all shipments?</h3>
+          <p>Volumetric weight applies to all courier and air freight shipments. For sea freight, calculations differ and are based on cubic metres (CBM).</p>
+        </div>
+        <div class="service-card" style="max-width:100%;">
+          <h3 style="font-size:16px; margin-bottom:8px;">How do I get an accurate quote?</h3>
+          <p>Use this calculator to estimate your volumetric weight, then contact us with the chargeable weight and destination for an accurate shipping quote.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-white">
+          <span class="logo-icon">✈</span>
+          <span class="logo-text">Connectu<span class="logo-accent">Logistics</span></span>
+        </a>
+        <p>Your trusted partner for international courier and logistics services.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">f</a>
+          <a href="#" class="social-link">ig</a>
+          <a href="#" class="social-link">wa</a>
+          <a href="#" class="social-link">in</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="tracking.html">Track Shipment</a></li>
+          <li><a href="volumetric.html">Volumetric Weight</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Our Services</h4>
+        <ul>
+          <li><a href="#">International Parcel Delivery</a></li>
+          <li><a href="#">Document Courier</a></li>
+          <li><a href="#">Express Freight</a></li>
+          <li><a href="#">E-Commerce Shipping</a></li>
+          <li><a href="#">Business Logistics</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul class="contact-list">
+          <li>📍 123, Logistics Park, Mumbai - 400001, India</li>
+          <li>📞 <a href="tel:+911234567890">+91 12345 67890</a></li>
+          <li>📧 <a href="mailto:info@connectulogistics.com">info@connectulogistics.com</a></li>
+          <li>🕐 Mon–Sat: 9:00 AM – 7:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2026 Connectu Logistics. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    function calculateVolumetric() {
+      const l = parseFloat(document.getElementById('length').value) || 0;
+      const w = parseFloat(document.getElementById('width').value) || 0;
+      const h = parseFloat(document.getElementById('height').value) || 0;
+      const actual = parseFloat(document.getElementById('actualWeight').value) || 0;
+
+      if (!l || !w || !h) {
+        alert('Please enter all three dimensions (Length, Width, Height).');
+        return;
+      }
+
+      const vol = (l * w * h) / 5000;
+      document.getElementById('volNum').textContent = vol.toFixed(2);
+
+      let note = '';
+      if (actual > 0) {
+        const chargeable = Math.max(vol, actual);
+        note = `Actual weight: ${actual} kg | Volumetric weight: ${vol.toFixed(2)} kg | Chargeable weight: ${chargeable.toFixed(2)} kg`;
+      } else {
+        note = 'Enter actual weight above to compare and find chargeable weight.';
+      }
+      document.getElementById('chargeableNote').textContent = note;
+
+      const result = document.getElementById('volResult');
+      result.classList.add('show');
+      result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Track Shipment – Connectu Logistics</title>
+  <meta name="description" content="Track your Connectu Logistics shipment in real-time. Enter your AWB or tracking number to get live updates." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">✈</span>
+        <span class="logo-text">Connectu<span class="logo-accent">Logistics</span></span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="tracking.html" class="nav-link active">Track Shipment</a>
+        <a href="volumetric.html" class="nav-link">Volumetric Weight</a>
+        <a href="index.html#about" class="nav-link">About Us</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="tracking.html" class="btn btn-primary nav-cta">Track Now</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-badge" style="margin-bottom:16px; display:inline-block;">Real-Time Tracking</span>
+      <h1>Track Your Shipment</h1>
+      <p>Enter your tracking number or AWB number to get live status updates on your parcel.</p>
+    </div>
+  </section>
+
+  <!-- TRACKING SECTION -->
+  <section class="tracking-section">
+    <div class="container">
+      <div class="tracking-card">
+        <h2>Enter Tracking Number</h2>
+        <p>Your tracking number can be found in your booking confirmation email or receipt.</p>
+        <form class="big-track-form" id="trackForm">
+          <input type="text" class="big-track-input" id="trackInput" placeholder="e.g. CL1234567890IN" required />
+          <button type="submit" class="btn btn-primary" style="padding: 16px 28px; font-size: 15px;">Track</button>
+        </form>
+      </div>
+
+      <!-- Result placeholder -->
+      <div class="tracking-info" id="trackResult" style="display:none;">
+        <div class="tracking-info-box">
+          <h3>Tracking Result for: <span id="trackNum"></span></h3>
+          <p id="trackStatus"></p>
+        </div>
+        <!-- Timeline -->
+        <div class="track-timeline" id="trackTimeline"></div>
+      </div>
+
+      <!-- Info box -->
+      <div class="tracking-info">
+        <div style="background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; margin-top: 16px;">
+          <h3 style="font-size:15px; font-weight:700; margin-bottom:10px;">📋 How to Track Your Shipment</h3>
+          <ul style="display:flex; flex-direction:column; gap:8px; color: var(--text-muted); font-size:14px; list-style: disc; padding-left:20px;">
+            <li>Locate your AWB (Air Waybill) or tracking number from your booking confirmation.</li>
+            <li>Enter the number in the search box above and click "Track".</li>
+            <li>View real-time status updates, estimated delivery, and location history.</li>
+            <li>For any issues, contact our support team at <a href="mailto:info@connectulogistics.com" style="color:var(--primary);">info@connectulogistics.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY TRACK WITH US -->
+  <section class="section" style="background: var(--bg-soft); padding: 72px 0;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Why Our Tracking is Best-in-Class</h2>
+      </div>
+      <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+        <div class="service-card">
+          <div class="service-icon">🔴</div>
+          <h3>Live Updates</h3>
+          <p>Get real-time status updates at every checkpoint — from pickup to final delivery.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📱</div>
+          <h3>SMS & Email Alerts</h3>
+          <p>Receive automatic notifications when your parcel status changes.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🗺️</div>
+          <h3>Location History</h3>
+          <p>See every transit point your parcel has passed through on its journey.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📋</div>
+          <h3>Delivery Proof</h3>
+          <p>Access delivery confirmation with recipient signature and timestamp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-white">
+          <span class="logo-icon">✈</span>
+          <span class="logo-text">Connectu<span class="logo-accent">Logistics</span></span>
+        </a>
+        <p>Your trusted partner for international courier and logistics services.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">f</a>
+          <a href="#" class="social-link">ig</a>
+          <a href="#" class="social-link">wa</a>
+          <a href="#" class="social-link">in</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="tracking.html">Track Shipment</a></li>
+          <li><a href="volumetric.html">Volumetric Weight</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Our Services</h4>
+        <ul>
+          <li><a href="#">International Parcel Delivery</a></li>
+          <li><a href="#">Document Courier</a></li>
+          <li><a href="#">Express Freight</a></li>
+          <li><a href="#">E-Commerce Shipping</a></li>
+          <li><a href="#">Business Logistics</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul class="contact-list">
+          <li>📍 123, Logistics Park, Mumbai - 400001, India</li>
+          <li>📞 <a href="tel:+911234567890">+91 12345 67890</a></li>
+          <li>📧 <a href="mailto:info@connectulogistics.com">info@connectulogistics.com</a></li>
+          <li>🕐 Mon–Sat: 9:00 AM – 7:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2026 Connectu Logistics. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('trackForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const num = document.getElementById('trackInput').value.trim();
+      document.getElementById('trackNum').textContent = num;
+      document.getElementById('trackStatus').textContent = 'Please contact our support team for detailed tracking information on this shipment, or check back shortly as our live tracking system updates.';
+      document.getElementById('trackResult').style.display = 'block';
+      document.getElementById('trackResult').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+</body>
+</html>
