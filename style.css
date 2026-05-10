@@ -109,21 +109,75 @@ img { max-width: 100%; display: block; }
 .logo-white .logo-accent { color: var(--white); }
 
 /* Partners bar */
-.partners-bar { text-align: center; margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border); }
-.partners-label { font-size: 13px; font-weight: 600; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px; }
-.partners-logos { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.partners-bar {
+  text-align: center;
+  margin-top: 56px;
+  padding: 48px 0 0;
+  border-top: 1px solid var(--border);
+}
+.partners-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+.partners-sub {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-top: 28px;
+  font-weight: 500;
+}
+
+/* Marquee */
+.partners-marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+.partners-marquee-wrapper::before,
+.partners-marquee-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+}
+.partners-marquee-wrapper::before { left: 0; background: linear-gradient(to right, var(--bg-soft), transparent); }
+.partners-marquee-wrapper::after  { right: 0; background: linear-gradient(to left, var(--bg-soft), transparent); }
+
+.partners-marquee {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: max-content;
+  animation: marquee-scroll 8s linear infinite;
+}
+.partners-marquee:hover { animation-play-state: paused; }
+
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+
 .partner-badge {
-  padding: 14px 32px;
-  border-radius: 10px;
-  font-size: 22px;
+  padding: 16px 36px;
+  border-radius: 12px;
+  font-size: 24px;
   font-weight: 900;
   letter-spacing: -0.5px;
   border: 2px solid var(--border);
+  flex-shrink: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
 }
+.partner-badge:hover { transform: translateY(-4px) scale(1.05); box-shadow: var(--shadow-lg); }
 .partner-badge.dhl { background: #FFCC00; color: #D40511; }
 .partner-badge.fedex { background: #fff; color: #4D148C; }
 .partner-badge.fedex span { color: #FF6600; }
 .partner-badge.ups { background: #351C15; color: #FFB500; }
+.partner-divider { font-size: 20px; color: var(--text-muted); flex-shrink: 0; opacity: 0.4; }
 
 /* Nav */
 .nav {
