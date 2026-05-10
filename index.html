@@ -59,13 +59,35 @@
   <!-- ===== TRACK BANNER ===== -->
   <section class="track-banner">
     <div class="container">
-      <div class="track-card" style="justify-content:center; text-align:center; gap:16px; flex-direction:column; align-items:center;">
-        <div style="font-size:36px;">🚧</div>
-        <div>
-          <h2 style="margin-bottom:6px;">Tracking — Under Construction</h2>
-          <p style="color:rgba(255,255,255,0.75);">Our live tracking system is coming soon. Contact us directly for shipment updates.</p>
+      <div class="track-coming-soon">
+
+        <!-- Animated plane journey -->
+        <div class="journey-track">
+          <div class="journey-line">
+            <div class="journey-dot dot-start"></div>
+            <div class="journey-progress"></div>
+            <div class="journey-plane">✈️</div>
+            <div class="journey-dot dot-end"></div>
+          </div>
+          <div class="journey-labels">
+            <span>Origin</span>
+            <span>Destination</span>
+          </div>
         </div>
-        <a href="contact.html" class="btn" style="background:var(--accent); border-color:var(--accent); color:#fff; margin-top:4px;">Contact Us for Updates</a>
+
+        <!-- Text -->
+        <div class="coming-soon-text">
+          <div class="coming-soon-badge">🚧 Coming Soon</div>
+          <h2>Live Shipment Tracking</h2>
+          <p>We're building a powerful real-time tracking system. Track your parcels live — milestone by milestone, anywhere in the world.</p>
+          <div class="coming-soon-features">
+            <div class="cs-feature"><span>📍</span> Real-Time Location</div>
+            <div class="cs-feature"><span>📱</span> SMS & Email Alerts</div>
+            <div class="cs-feature"><span>📋</span> Delivery Proof</div>
+          </div>
+          <a href="contact.html" class="btn" style="background:var(--accent); border-color:var(--accent); color:#fff; margin-top:8px;">Contact Us for Updates</a>
+        </div>
+
       </div>
     </div>
   </section>
