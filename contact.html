@@ -22,8 +22,7 @@
         <a href="tracking.html" class="nav-link">Track Shipment</a>
         <a href="volumetric.html" class="nav-link">Volumetric Weight</a>
         <a href="index.html#about" class="nav-link">About Us</a>
-        <a href="contact.html" class="nav-link active">Contact</a>
-        <a href="contact.html" class="btn btn-primary nav-cta">Contact Us</a>
+        <a href="contact.html" class="btn btn-primary nav-cta active">Contact Us</a>
       </nav>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -63,7 +62,6 @@
               <div>
                 <h4>Phone & WhatsApp</h4>
                 <p><a href="tel:+919266047755" style="color:var(--primary);">+91 92660 47755</a></p>
-                <p><a href="tel:+917649933300" style="color:var(--primary);">+91 76499 33300</a></p>
               </div>
             </div>
             <div class="contact-detail">
@@ -78,8 +76,7 @@
               <div class="contact-detail-icon">🕐</div>
               <div>
                 <h4>Business Hours</h4>
-                <p>Monday – Saturday: 9:00 AM – 7:00 PM</p>
-                <p>Sunday: 10:00 AM – 3:00 PM</p>
+                <p>Monday – Saturday: 11:00 AM – 7:00 PM</p>
               </div>
             </div>
           </div>
@@ -94,28 +91,28 @@
         <!-- Contact Form -->
         <div class="contact-form-card">
           <h3>Send Us a Message</h3>
-          <form id="contactForm" onsubmit="submitForm(event)">
+          <form id="contactForm" action="https://formspree.io/f/mpqbndzb" method="POST">
             <div class="form-row">
               <div class="form-group">
                 <label>First Name *</label>
-                <input type="text" placeholder="e.g. Rahul" required />
+                <input type="text" name="first_name" placeholder="e.g. Rahul" required />
               </div>
               <div class="form-group">
                 <label>Last Name *</label>
-                <input type="text" placeholder="e.g. Mehta" required />
+                <input type="text" name="last_name" placeholder="e.g. Mehta" required />
               </div>
             </div>
             <div class="form-group">
               <label>Email Address *</label>
-              <input type="email" placeholder="rahul@example.com" required />
+              <input type="email" name="email" placeholder="rahul@example.com" required />
             </div>
             <div class="form-group">
               <label>Phone Number</label>
-              <input type="tel" placeholder="+91 98765 43210" />
+              <input type="tel" name="phone" placeholder="+91 98765 43210" />
             </div>
             <div class="form-group">
               <label>Enquiry Type *</label>
-              <select required>
+              <select name="enquiry_type" required>
                 <option value="">Select an enquiry type</option>
                 <option>Shipping Quote</option>
                 <option>Schedule Pickup</option>
@@ -127,12 +124,14 @@
             </div>
             <div class="form-group">
               <label>Destination Country</label>
-              <input type="text" placeholder="e.g. United Kingdom, USA, Australia" />
+              <input type="text" name="destination" placeholder="e.g. United Kingdom, USA, Australia" />
             </div>
             <div class="form-group">
               <label>Message *</label>
-              <textarea placeholder="Tell us more about your shipment requirements, parcel weight, dimensions, or any other details..." required></textarea>
+              <textarea name="message" placeholder="Tell us more about your shipment requirements, parcel weight, dimensions, or any other details..." required></textarea>
             </div>
+            <input type="hidden" name="_subject" value="New Enquiry – Connectu Logistics Website" />
+            <input type="hidden" name="_replyto" value="connectulogistics@gmail.com" />
             <button type="submit" class="btn btn-primary form-submit">Send Message</button>
           </form>
           <div id="formSuccess" style="display:none; margin-top:20px; background:var(--primary-light); border:1px solid rgba(0,82,204,0.3); border-radius:var(--radius); padding:20px; text-align:center;">
@@ -177,7 +176,6 @@
         <ul class="contact-list">
           <li>📍 D-122, Ground Floor, Shayam Park Extension, Sahibabad, Ghaziabad – 201005</li>
           <li>📞 <a href="tel:+919266047755">+91 92660 47755</a></li>
-          <li>📞 <a href="tel:+917649933300">+91 76499 33300</a></li>
           <li>📧 <a href="mailto:connectulogistics@gmail.com">connectulogistics@gmail.com</a></li>
           <li>🌐 <a href="https://www.connectulogistics.com">www.connectulogistics.com</a></li>
         </ul>
@@ -196,11 +194,25 @@
 
   <script src="script.js"></script>
   <script>
-    function submitForm(e) {
+    var form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
-      document.getElementById('contactForm').style.display = 'none';
-      document.getElementById('formSuccess').style.display = 'block';
-    }
+      var data = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          form.style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+        } else {
+          alert('Something went wrong. Please email us directly at connectulogistics@gmail.com');
+        }
+      }).catch(function() {
+        alert('Something went wrong. Please email us directly at connectulogistics@gmail.com');
+      });
+    });
   </script>
 </body>
 </html>

@@ -500,7 +500,7 @@ img { max-width: 100%; display: block; }
 .how-it-works { background: var(--bg-soft); }
 .steps-grid {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
@@ -532,7 +532,7 @@ img { max-width: 100%; display: block; }
 .step-icon { font-size: 36px; margin-bottom: 14px; }
 .step-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
 .step-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
-.step-arrow { font-size: 24px; color: var(--primary); align-self: center; flex-shrink: 0; margin-top: -20px; }
+.step-arrow { font-size: 24px; color: var(--primary); align-self: center; flex-shrink: 0; }
 
 /* ===== TESTIMONIALS ===== */
 .testimonials { background: var(--bg); }
@@ -746,6 +746,67 @@ img { max-width: 100%; display: block; }
   font-size: 14px;
   font-family: monospace;
   color: var(--primary);
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.reveal-left {
+  transform: translateX(-40px);
+}
+.reveal.reveal-right {
+  transform: translateX(40px);
+}
+.reveal.reveal-scale {
+  transform: scale(0.92);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger delay helpers */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+
+/* Hero content entrance */
+.hero-badge   { animation: fadeSlideUp 0.7s ease both; animation-delay: 0.1s; }
+.hero-title   { animation: fadeSlideUp 0.7s ease both; animation-delay: 0.25s; }
+.hero-subtitle{ animation: fadeSlideUp 0.7s ease both; animation-delay: 0.4s; }
+.hero-actions { animation: fadeSlideUp 0.7s ease both; animation-delay: 0.55s; }
+.hero-stats   { animation: fadeSlideUp 0.7s ease both; animation-delay: 0.7s; }
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Floating cards in Why Us */
+.card-main      { animation: float 4s ease-in-out infinite; }
+.card-secondary { animation: float 4s ease-in-out infinite; animation-delay: 1s; }
+.card-tertiary  { animation: float 4s ease-in-out infinite; animation-delay: 2s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* Stat number count-up pulse */
+.stat-num { animation: statPop 0.6s cubic-bezier(0.34,1.56,0.64,1) both; }
+.stat:nth-child(1) .stat-num { animation-delay: 0.7s; }
+.stat:nth-child(3) .stat-num { animation-delay: 0.85s; }
+.stat:nth-child(5) .stat-num { animation-delay: 1s; }
+
+@keyframes statPop {
+  from { opacity: 0; transform: scale(0.5); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
 /* ===== RESPONSIVE ===== */
