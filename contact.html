@@ -198,6 +198,26 @@
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       var data = new FormData(form);
+
+      // Build WhatsApp message from form fields
+      var name = (data.get('first_name') || '') + ' ' + (data.get('last_name') || '');
+      var email = data.get('email') || '';
+      var phone = data.get('phone') || 'Not provided';
+      var enquiry = data.get('enquiry_type') || '';
+      var destination = data.get('destination') || 'Not specified';
+      var message = data.get('message') || '';
+
+      var waText = '🔔 *New Enquiry – Connectu Logistics*\n\n'
+        + '*Name:* ' + name.trim() + '\n'
+        + '*Email:* ' + email + '\n'
+        + '*Phone:* ' + phone + '\n'
+        + '*Enquiry Type:* ' + enquiry + '\n'
+        + '*Destination:* ' + destination + '\n'
+        + '*Message:* ' + message;
+
+      var waURL = 'https://wa.me/919266047755?text=' + encodeURIComponent(waText);
+
+      // Submit to Formspree first, then open WhatsApp
       fetch(form.action, {
         method: 'POST',
         body: data,
@@ -206,6 +226,7 @@
         if (response.ok) {
           form.style.display = 'none';
           document.getElementById('formSuccess').style.display = 'block';
+          window.open(waURL, '_blank');
         } else {
           alert('Something went wrong. Please email us directly at connectulogistics@gmail.com');
         }
